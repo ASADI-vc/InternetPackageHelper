@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            width: 400px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+
+        .group-title {
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .package-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-title {
+            font-weight: bold;
+            color: #0056b3;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .package-details {
+            font-size: 12px;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .value-score {
+            font-size: 11px;
+            color: #28a745;
+            margin-top: 5px;
+            border-top: 1px dashed #eee;
+            padding-top: 5px;
+        }
+
+        #results {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="analyzeBtn">استخراج و تحلیل بسته‌ها</button>
+    <div id="results">
+        <!-- نتایج در اینجا اضافه خواهند شد -->
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

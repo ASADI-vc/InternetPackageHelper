@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Internet Package Analyzer",
-    "version": "1.1",
-    "description": "Parses internet packages, groups by time, and sorts by GB/RIAL value.",
+    "version": "1.1.1",
+    "description": "Compare Irancell and Hamrahaval internet packages by cost per GB and keep a local history.",
     "permissions": [
         "activeTab",
         "scripting",
@@ -13,8 +13,16 @@
     },
     "browser_specific_settings": {
         "gecko": {
-            "id": "internet-package-analyzer@yourdomain.example",
-            "strict_min_version": "115.0"
+            "id": "internet-package-analyzer@chycar.ir",
+            "strict_min_version": "115.0",
+            "data_collection_permissions": {
+                "required": [
+                    "none"
+                ]
+            }
         }
+    },
+    "icons": {
+        "128": "icons/icon-128.png"
     }
 }

@@ -39,6 +39,10 @@ async function saveSnapshot(snapshot) {
 }
 
 // ==================== Formatting ====================
+function escapeHtml(value) {
+    return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+}
+
 function formatDate(ts) {
     try {
         return new Intl.DateTimeFormat('fa-IR', {
@@ -64,7 +68,7 @@ document.getElementById('analyzeBtn').addEventListener('click', async () => {
         }, async (results) => {
             if (chrome.runtime.lastError) {
                 console.error("خطای افزونه:", chrome.runtime.lastError.message);
-                resultsDiv.innerHTML = `<span style="color:red">خطا در اجرای اسکریپت: ${chrome.runtime.lastError.message}</span>`;
+                resultsDiv.innerHTML = `<span style="color:red">خطا در اجرای اسکریپت: ${escapeHtml(chrome.runtime.lastError.message)}</span>`;
                 return;
             }
             if (!results || !results[0] || !results[0].result) return;
@@ -84,7 +88,7 @@ document.getElementById('analyzeBtn').addEventListener('click', async () => {
                       ۲. صفحه هنوز به طور کامل لود نشده است.<br>
                       ۳. یک تب فیلتر انتخاب شده که بسته اینترنت ندارد.<br>
                       <br><strong>لاگ‌های بررسی صفحه:</strong><br>
-                      <pre style="background:#eee; padding:5px; border-radius:4px; max-height:150px; overflow-y:auto;">${logs.join('\n')}</pre>
+                      <pre style="background:#eee; padding:5px; border-radius:4px; max-height:150px; overflow-y:auto;">${escapeHtml(logs.join('\n'))}</pre>
                     </div>`;
                 return;
             }
@@ -289,7 +293,7 @@ function displayResults(packages, operator, isDuplicate) {
 
             const d = document.createElement('div');
             d.className = 'package-details';
-            d.innerHTML = `<span>حجم: ${item.volume.toFixed(2)} GB</span> <span>قیمت: ${item.formattedPrice} ریال</span>`;
+            d.innerHTML = `<span>حجم: ${item.volume.toFixed(2)} GB</span> <span>قیمت: ${escapeHtml(item.formattedPrice)} ریال</span>`;
 
             const s = document.createElement('div');
             s.className = 'value-score';
@@ -417,7 +421,7 @@ function runComparison(snapshots, idA, idB) {
                         ? `<div class="compare-side-label">مساوی</div>`
                         : `<div class="compare-side-label">${OPERATOR_NAMES[a.operator]}</div>`;
                 html += `<div class="compare-side-title">${pair.a.volume.toFixed(2)} GB</div>`;
-                html += `<div class="compare-side-price">${pair.a.formattedPrice} ریال</div>`;
+                html += `<div class="compare-side-price">${escapeHtml(pair.a.formattedPrice)} ریال</div>`;
                 html += `<div class="compare-side-value">ارزش: ${pair.a.valueScore.toFixed(2)}</div>`;
                 html += `</div>`;
             } else {
@@ -433,7 +437,7 @@ function runComparison(snapshots, idA, idB) {
                         ? `<div class="compare-side-label">مساوی</div>`
                         : `<div class="compare-side-label">${OPERATOR_NAMES[b.operator]}</div>`;
                 html += `<div class="compare-side-title">${pair.b.volume.toFixed(2)} GB</div>`;
-                html += `<div class="compare-side-price">${pair.b.formattedPrice} ریال</div>`;
+                html += `<div class="compare-side-price">${escapeHtml(pair.b.formattedPrice)} ریال</div>`;
                 html += `<div class="compare-side-value">ارزش: ${pair.b.valueScore.toFixed(2)}</div>`;
                 html += `</div>`;
             } else {

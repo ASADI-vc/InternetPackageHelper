@@ -19,7 +19,6 @@ cost‑per‑GB, stores a history, and compares the two operators side by side.
   *Load unpacked* → select this folder.
 - **Firefox (testing)**: `about:debugging#/runtime/this-firefox` →
   *Load Temporary Add-on…* → `manifest.json`.
-- **Firefox (permanent)**: must be signed — `web-ext sign --api-key=… --api-secret=…` (keys at addons.mozilla.org).
 
 ## Usage
 

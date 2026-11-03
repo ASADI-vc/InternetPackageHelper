@@ -1,11 +1,12 @@
 {
     "manifest_version": 3,
     "name": "Internet Package Analyzer",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Parses internet packages, groups by time, and sorts by GB/RIAL value.",
     "permissions": [
         "activeTab",
-        "scripting"
+        "scripting",
+        "storage"
     ],
     "action": {
         "default_popup": "popup.html"
